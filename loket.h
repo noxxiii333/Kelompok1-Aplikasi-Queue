@@ -15,27 +15,25 @@
 /*             pengunjung aktif, serta array riwayat pengunjung. */
 /***********************************/
 
-/* type Loket = < id: integer,                                 {id loket}
-                  status: integer,                             {status loket 1=melayani, 0=kosong}
-                  jenisLayanan: array [1..2] of character,     {kode layanan yang ditangani}
-                  pengunjungAktif: Pengunjung,                 {pengunjung yang sedang dilayani}
-                  listPengunjung: array [1..10] of Pengunjung, {pengunjung yang sudah dilayani}
-                  countRiwayat: integer >                      {jumlah riwayat pengunjung}
+/* type Loket = < id: integer,                                  {id loket}
+                  status: integer,                              {status loket 1=melayani, 0=kosong}
+                  jenisLayanan: array [1..2] of character,      {kode layanan yang ditangani}
+                  pengunjungAktif: Pengunjung,                  {pengunjung yang sedang dilayani}
+                  listPengunjung: array [1..10] of Pengunjung > {pengunjung yang sudah dilayani}
 {cara akses: L: Loket, L.id = id(L), L.status = status(L), L.countRiwayat = countRiwayat(L) ...} */
 typedef struct { int id; 
                  int status; 
                  char jenisLayanan[MAX_LAYANAN + 1];         // kapasitas 2 elemen, indeks 0 tidak dipakai
                  Pengunjung pengunjungAktif; 
                  Pengunjung listPengunjung[MAX_RIWAYAT + 1]; // kapasitas 10 elemen, indeks 0 tidak dipakai
-                 int countRiwayat;                           // melacak jumlah pengunjung di listPengunjung
                 } Loket;
 
 /* --- KONSTRUKTOR --- */
-/* procedure makeLoket (output L: Loket, input id: integer, input lay1: character, input lay2: character)
+/* procedure makeLoket (output L: Loket, input id: integer)
 {I.S.: L sembarang}
-{F.S.: L terdefinisi dengan id sesuai parameter, status = 0, jenisLayanan berisi lay1 dan lay2, pengunjungAktif di-set kosong, countRiwayat = 0}
+{F.S.: L terdefinisi dengan id sesuai parameter, status = 0, jenisLayanan berisi sesuai porsinya, pengunjungAktif di-set kosong}
 {Proses: Menginisialisasi nilai awal elemen-elemen struktur Loket} */
-void makeLoket(Loket *L, int id, char lay1, char lay2);
+void makeLoket(Loket *L, int id);
 
 /* --- SELEKTOR & MUTATOR --- */
 /* procedure mulaiLayanan (input/output L: Loket, input P: Pengunjung)
@@ -55,11 +53,11 @@ void selesaiLayanan(Loket *L);
 {mengembalikan true (1) jika status loket adalah 0, dan false (0) jika statusnya 1} */
 boolean isLoketKosong(Loket L);
 
-/* function canServe (L: Loket, kodeLayanan: character) -> boolean 
+/* function isBisaMelayani (L: Loket, kodeLayanan: character) -> boolean 
 {mengembalikan true (1) jika kodeLayanan cocok dengan salah satu layanan yang ada di array jenisLayanan loket L} */
-boolean canServe(Loket L, char kodeLayanan);
+boolean isBisaMelayani(Loket L, char kodeLayanan);
 
-/* --- OPERASI LAINNYA --- */
+/* --- PRINT --- */
 /* procedure printLoket (input L: Loket)
 {I.S.: L terdefinisi}
 {F.S.: Informasi id loket, status, jenis layanan, pengunjung aktif, serta daftar pengunjung di listPengunjung tercetak di layar}
