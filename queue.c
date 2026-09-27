@@ -169,3 +169,52 @@ void dequeue(QueueP *Q, Pengunjung *P){
         P->layanan = '-';
     }
 }
+
+/* procedure tambahPengunjungInteraktif(input/output QA,QB,QI,QP: QueueP)
+{I.S.: QA, QB, QI, QP terdefinisi, mungkin kosong}
+{F.S.: jika input valid, satu Pengunjung baru ditambahkan ke antrean sesuai kode layanan;
+       jika kode layanan tidak valid, tidak ada perubahan pada antrean}
+{Proses: membaca id, nama, dan kode layanan dari keyboard, membentuk Pengunjung
+         dengan MakePengunjung, lalu melakukan Enqueue ke antrean yang sesuai
+         (A->QA, B->QB, I->QI, P->QP)} */
+void tambahPengunjungInteraktif(QueueP *QA, QueueP *QB, QueueP *QI, QueueP *QP) {
+    int id;
+    char nama[50];
+    char layanan;
+    Pengunjung P;
+
+    printf("\n=== TAMBAH PENGUNJUNG ===\n");
+    printf("ID Pengunjung   : ");
+    scanf("%d", &id);
+    printf("Nama Pengunjung : ");
+    scanf("%s", nama);          
+    printf("Kode Layanan    : ");
+    scanf(" %c", &layanan);     
+
+    MakePengunjung(&P, id, nama, layanan);
+
+    switch (layanan) {
+        case 'A':
+        case 'a':
+            Enqueue(QA, P);
+            printf(">> %s masuk ke antrean A.\n", nama);
+            break;
+        case 'B':
+        case 'b':
+            Enqueue(QB, P);
+            printf(">> %s masuk ke antrean B.\n", nama);
+            break;
+        case 'I':
+        case 'i':
+            Enqueue(QI, P);
+            printf(">> %s masuk ke antrean I.\n", nama);
+            break;
+        case 'P':
+        case 'p':
+            Enqueue(QP, P);
+            printf(">> %s masuk ke antrean P.\n", nama);
+            break;
+        default:
+            printf(">> Kode layanan tidak valid! (Gunakan A/B/I/P)\n");
+    }
+}
