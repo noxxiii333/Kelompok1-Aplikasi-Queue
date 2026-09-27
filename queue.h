@@ -17,7 +17,10 @@
                    tail: integer >
 {cara akses: Q: QueueP, Q.head=head(Q) ...} */
 
-typedef QueueP queueP;
+typedef struct { Pengunjung wadah[11];
+                 int head;
+                 int tail;
+                } QueueP;
 
 /*procedure createQueue ( output Q:QueueP )
 {I.S.: -}
