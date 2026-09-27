@@ -20,7 +20,8 @@
                   jenisLayanan: array [1..2] of character,      {kode layanan yang ditangani}
                   pengunjungAktif: Pengunjung,                  {pengunjung yang sedang dilayani}
                   listPengunjung: array [1..10] of Pengunjung > {pengunjung yang sudah dilayani}
-{cara akses: L: Loket, L.id = id(L), L.status = status(L), L.countRiwayat = countRiwayat(L) ...} */
+{cara akses: L: Loket, L.id = id(L), L.status = status(L), L.countRiwayat = countRiwayat(L) ...}
+{asumsi jika jenis layanan hanya 1, maka indeks ke-2 dianggap kosong dan diisi '-'} */
 typedef struct { int id; 
                  int status; 
                  char jenisLayanan[MAX_LAYANAN + 1];         // kapasitas 2 elemen, indeks 0 tidak dipakai
