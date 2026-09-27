@@ -16,11 +16,6 @@
                    head: integer,
                    tail: integer >
 {cara akses: Q: QueueP, Q.head=head(Q) ...} */
-typedef struct {
-    Pengunjung wadah[11]; // kapasitas 10 elemen, indeks 0 tidak dipakai
-    int head;
-    int tail;
-} QueueP;
 
 typedef QueueP queueP;
 
