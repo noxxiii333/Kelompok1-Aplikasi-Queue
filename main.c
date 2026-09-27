@@ -30,10 +30,10 @@ int main()
     makeLoket(&L4, 4);
 
     /* inisialisasi Q untuk antrean pengunjung */
-    /* CreateQueue(&QA);
-     CreateQueue(&QB);
-     CreateQueue(&QI);
-     CreateQueue(&QP); */
+    createQueue(&QA);
+    createQueue(&QB);
+    createQueue(&QI);
+    createQueue(&QP); 
 
     PrintPengunjung(&P1);
     printf("\n\n");
