@@ -2,6 +2,7 @@
 #define QUEUE_H
 
 #include "boolean.h"
+#include "pengunjung.h"
 
 /* Program   : queue.h */
 /* Deskripsi : ADT Queue representasi kontigu dengan array untuk Pengunjung, */
@@ -9,22 +10,6 @@
 /* NIM/Nama  : 24060125120048/Joshua Briliant Suryana */
 /* Tanggal   : 27 September 2026 */
 /***********************************/
-
-/* Definisi ADT Pengunjung */
-#ifndef PENGUNJUNG_H
-#define PENGUNJUNG_H
-
-/* type Pengunjung = < id: integer,          {id pengunjung} 
-                       nama: string,         {nama pengunjung}
-                       layanan: character >  {kode layanan yang dipilih pengunjung} 
-{cara akses: P: Pengunjung, P.id, P.nama, P.layanan ...} */
-typedef struct {
-    int id;
-    char nama[50];
-    char layanan;
-} Pengunjung;
-
-#endif
 
 /* Definisi ADT QueueP */
 /* type QueueP = < wadah: array [1..10] of Pengunjung,
@@ -122,11 +107,3 @@ int sizeQueue(QueueP Q);
 #define Dequeue      dequeue
 
 #endif
-#include "pengunjung.h"
-
-typedef struct
-{
-    Pengunjung wadah[50];
-    int head;
-    int tail;
-} QueueP;
