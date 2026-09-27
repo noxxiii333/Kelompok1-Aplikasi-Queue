@@ -91,6 +91,12 @@ void viewQueue(QueueP Q);
 {mengembalikan panjang antrian Q} */
 int sizeQueue(QueueP Q);
 
+/* procedure tambahPengunjungInteraktif(input/output QA,QB,QI,QP: QueueP)
+{I.S.: QA, QB, QI, QP terdefinisi, mungkin kosong}
+{F.S.: jika input valid, satu Pengunjung baru ditambahkan ke antrean sesuai kode layanan;
+       jika kode layanan tidak valid, tidak ada perubahan pada antrean} */
+void tambahPengunjungInteraktif(QueueP *QA, QueueP *QB, QueueP *QI, QueueP *QP);
+
 /* Macro alias pemanggilan fungsi (fleksibilitas penamaan PascalCase & camelCase) */
 #define CreateQueue  createQueue
 #define InfoHead     infoHead
@@ -103,5 +109,5 @@ int sizeQueue(QueueP Q);
 #define IsOneElement isOneElement
 #define Enqueue      enqueue
 #define Dequeue      dequeue
-
+#define TambahPengunjungInteraktif tambahPengunjungInteraktif
 #endif
