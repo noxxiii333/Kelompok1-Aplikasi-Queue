@@ -1,5 +1,6 @@
 #include "pengunjung.h"
 #include <stdio.h>
+#include <string.h>
 
 /**********KONSTRUKTOR**********/
 /* procedure MakePengunjung(output P:Pengunjung, input id:integer, nama:string, layanan:character) */

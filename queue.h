@@ -17,35 +17,37 @@
                    tail: integer >
 {cara akses: Q: QueueP, Q.head=head(Q) ...} */
 
-typedef struct { Pengunjung wadah[11];
-                 int head;
-                 int tail;
-                } QueueP;
+typedef struct
+{
+       Pengunjung wadah[11];
+       int head;
+       int tail;
+} QueueP;
 
 /*procedure createQueue ( output Q:QueueP )
 {I.S.: -}
 {F.S.: Q terdefinisi, kosong}
-{Proses: menginisialisasi elemen wadah, head=tail=0 }*/ 
-void createQueue(QueueP *Q);
+{Proses: menginisialisasi elemen wadah, head=tail=0 }*/
+void CreateQueue(QueueP *Q);
 
-/*function Head(Q:QueueP)-> integer 
+/*function Head(Q:QueueP)-> integer
 {mengembalikan elemen terdepan antrian Q} */
-//int Head(QueueP Q);
-#define head(Q) (Q).head //implementasi fisik macro
+// int Head(QueueP Q);
+#define head(Q) (Q).head // implementasi fisik macro
 #define Head(Q) (Q).head
 
-/*function infoHead(Q:QueueP)-> Pengunjung 
+/*function infoHead(Q:QueueP)-> Pengunjung
 {mengembalikan nilai elemen terdepan antrian Q} */
 /*pikirkan bila antrian kosong*/
 Pengunjung infoHead(QueueP Q);
 
-/*function Tail(Q:QueueP)-> integer 
+/*function Tail(Q:QueueP)-> integer
 {mengembalikan elemen terakhir antrian Q} */
-//int Tail(QueueP Q);
-#define tail(Q) (Q).tail //implementasi fisik macro
+// int Tail(QueueP Q);
+#define tail(Q) (Q).tail // implementasi fisik macro
 #define Tail(Q) (Q).tail
 
-/*function infoTail(Q:QueueP)-> Pengunjung 
+/*function infoTail(Q:QueueP)-> Pengunjung
 {mengembalikan nilai elemen terakhir antrian Q} */
 /*pikirkan bila antrian kosong*/
 Pengunjung infoTail(QueueP Q);
@@ -54,14 +56,14 @@ Pengunjung infoTail(QueueP Q);
 {I.S.: Q dan P terdefinisi}
 {F.S.: elemen wadah Q bertambah 1, bila belum penuh}
 {proses: menambah elemen wadah Q } */
-void enqueue(QueueP *Q, Pengunjung P);
+void Enqueue(QueueP *Q, Pengunjung P);
 
 /*procedure deQueue( input/output Q:QueueP, output P: Pengunjung )
 {I.S.: Q terdefinisi, mungkin kosong}
 {F.S.: P=infoHead(Q) atau P elemen kosong bila Q kosong, elemen wadah Q berkurang 1 }
 {proses: mengurangi elemen wadah Q, semua elemen di belakang head digeser maju }
 {bila awalnya 1 elemen, maka Head dan Tail menjadi 0 } */
-void dequeue(QueueP *Q, Pengunjung *P);
+void Dequeue(QueueP *Q, Pengunjung *P);
 
 /*function isEmptyQueue(Q:QueueP) -> boolean
 {mengembalikan true jika Q kosong}*/
@@ -87,7 +89,7 @@ void printQueue(QueueP Q);
 {proses: mencetak elemen tak kosong ke layar}*/
 void viewQueue(QueueP Q);
 
-/*function sizeQueue(Q:QueueP)-> integer 
+/*function sizeQueue(Q:QueueP)-> integer
 {mengembalikan panjang antrian Q} */
 int sizeQueue(QueueP Q);
 
@@ -97,17 +99,4 @@ int sizeQueue(QueueP Q);
        jika kode layanan tidak valid, tidak ada perubahan pada antrean} */
 void tambahPengunjungInteraktif(QueueP *QA, QueueP *QB, QueueP *QI, QueueP *QP);
 
-/* Macro alias pemanggilan fungsi (fleksibilitas penamaan PascalCase & camelCase) */
-#define CreateQueue  createQueue
-#define InfoHead     infoHead
-#define InfoTail     infoTail
-#define SizeQueue    sizeQueue
-#define PrintQueue   printQueue
-#define ViewQueue    viewQueue
-#define IsEmptyQueue isEmptyQueue
-#define IsFullQueue  isFullQueue
-#define IsOneElement isOneElement
-#define Enqueue      enqueue
-#define Dequeue      dequeue
-#define TambahPengunjungInteraktif tambahPengunjungInteraktif
 #endif
