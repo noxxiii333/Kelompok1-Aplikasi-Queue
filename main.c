@@ -19,7 +19,7 @@ int main() {
     MakePengunjung(&P2, 2, "Joshua", 'B');
     MakePengunjung(&P3, 3, "Wendi",  'I');
     MakePengunjung(&P4, 4, "Radit",  'P');
-    MakePengunjung(&P5, 5, "Orang5", 'A');
+    MakePengunjung(&P5, 5, "David", 'A');
 
     /* --- 2. MEMBUAT 4 LOKET --- */
     makeLoket(&L1, 1);
