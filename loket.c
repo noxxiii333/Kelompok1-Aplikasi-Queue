@@ -72,17 +72,22 @@ void selesaiLayanan(Loket *L)
 {
     // kamus
     int i;
+    boolean Found;
 
     // algoritma
     L->status = 0;
+    Found = false;
 
     // Cari slot kosong pertama di array listPengunjung
-    for (i = 1; i <= MAX_RIWAYAT; i++)
+    while (i <= MAX_RIWAYAT && !(Found))
     {
         if (L->listPengunjung[i].id == IDX_UNDEF)
         {
             L->listPengunjung[i] = L->pengunjungAktif;
-            break; // Keluar dari perulangan setelah berhasil memasukkan data
+            Found = true;
+        } else 
+        {
+            i++;
         }
     }
 

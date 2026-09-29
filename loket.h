@@ -45,7 +45,7 @@ void mulaiLayanan(Loket *L, Pengunjung P);
 
 /* procedure selesaiLayanan (input/output L: Loket)
 {I.S.: L terdefinisi dan sedang melayani pengunjung (status = 1)}
-{F.S.: status L kembali menjadi 0 (kosong), pengunjungAktif sebelumnya dimasukkan ke dalam listPengunjung, countRiwayat bertambah}
+{F.S.: status L kembali menjadi 0 (kosong), pengunjungAktif sebelumnya dimasukkan ke dalam listPengunjung}
 {Proses: Menyelesaikan layanan pengunjung saat ini dan mencatatnya ke dalam riwayat loket} */
 void selesaiLayanan(Loket *L);
 
